@@ -1,0 +1,195 @@
+smart-attendance/
+├── app/                              # Next.js 14 App Router
+│   ├── (auth)/                       # Authentication Group
+│   │   ├── login/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── register/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── face-register/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── forgot-password/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   └── reset-password/
+│   │       ├── page.tsx
+│   │       └── loading.tsx
+│   ├── (employee)/                   # Employee Routes Group
+│   │   ├── dashboard/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── attendance/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── profile/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── history/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   └── leave/
+│   │       ├── page.tsx
+│   │       └── loading.tsx
+│   ├── (admin)/                      # Admin Routes Group
+│   │   ├── dashboard/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── employees/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── employees/
+│   │   │   └── [id]/
+│   │   │       ├── page.tsx
+│   │   │       └── loading.tsx
+│   │   ├── locations/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── locations/
+│   │   │   └── [id]/
+│   │   │       ├── page.tsx
+│   │   │       └── loading.tsx
+│   │   ├── reports/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   ├── settings/
+│   │   │   ├── page.tsx
+│   │   │   └── loading.tsx
+│   │   └── notifications/
+│   │       ├── page.tsx
+│   │       └── loading.tsx
+│   ├── api/                          # API Routes
+│   │   ├── attendance/
+│   │   │   ├── route.ts
+│   │   │   └── check-in/
+│   │   │       └── route.ts
+│   │   ├── face-recognition/
+│   │   │   └── route.ts
+│   │   ├── locations/
+│   │   │   └── route.ts
+│   │   └── webhooks/
+│   │       └── supabase/
+│   │           └── route.ts
+│   ├── layout.tsx                    # Root Layout
+│   ├── page.tsx                      # Home Page
+│   ├── loading.tsx                   # Global Loading
+│   ├── error.tsx                     # Global Error
+│   ├── not-found.tsx                 # 404 Page
+│   └── globals.css                   # Global Styles
+├── components/                       # React Components
+│   ├── providers/                    # Context Providers
+│   │   ├── AuthProvider.tsx
+│   │   ├── ThemeProvider.tsx
+│   │   └── ToastProvider.tsx
+│   ├── auth/                         # Auth Components
+│   │   ├── LoginForm.tsx
+│   │   ├── RegisterForm.tsx
+│   │   ├── FaceLogin.tsx
+│   │   ├── FaceRegister.tsx
+│   │   └── ProtectedRoute.tsx
+│   ├── attendance/                   # Attendance Components
+│   │   ├── AttendanceButton.tsx
+│   │   ├── LocationMap.tsx
+│   │   ├── FaceCamera.tsx
+│   │   ├── AttendanceList.tsx
+│   │   └── AttendanceStats.tsx
+│   ├── admin/                        # Admin Components
+│   │   ├── StatsCard.tsx
+│   │   ├── EmployeeTable.tsx
+│   │   ├── RealTimeFeed.tsx
+│   │   ├── LocationManager.tsx
+│   │   └── ReportGenerator.tsx
+│   ├── ui/                          # UI Components
+│   │   ├── Sidebar.tsx
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── LoadingSpinner.tsx
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Modal.tsx
+│   │   ├── Toast.tsx
+│   │   ├── Badge.tsx
+│   │   └── ProgressBar.tsx
+│   └── shared/                      # Shared Components
+│       ├── LayoutWrapper.tsx
+│       ├── PageHeader.tsx
+│       ├── DataTable.tsx
+│       ├── Charts/
+│       │   ├── AttendanceChart.tsx
+│       │   └── WeeklyChart.tsx
+│       └── Maps/
+│           ├── AttendanceMap.tsx
+│           └── LocationPicker.tsx
+├── lib/                             # Utility Libraries
+│   ├── supabase/                    # Supabase Client
+│   │   ├── client.ts
+│   │   ├── server.ts
+│   │   └── middleware.ts
+│   ├── utils/                       # Utility Functions
+│   │   ├── faceRecognition.ts
+│   │   ├── location.ts
+│   │   ├── date.ts
+│   │   ├── validation.ts
+│   │   ├── export.ts
+│   │   └── constants.ts
+│   ├── hooks/                       # Custom Hooks
+│   │   ├── useAuth.ts
+│   │   ├── useAttendance.ts
+│   │   ├── useLocation.ts
+│   │   ├── useCamera.ts
+│   │   └── useRealtime.ts
+│   ├── types/                       # TypeScript Types
+│   │   ├── database.types.ts
+│   │   ├── attendance.types.ts
+│   │   ├── user.types.ts
+│   │   └── api.types.ts
+│   └── services/                    # Business Logic
+│       ├── attendance.service.ts
+│       ├── user.service.ts
+│       ├── location.service.ts
+│       └── report.service.ts
+├── supabase/                        # Supabase Configuration
+│   ├── migrations/                  # Database Migrations
+│   │   ├── 0001_initial_schema.sql
+│   │   ├── 0002_add_face_embeddings.sql
+│   │   └── 0003_add_audit_logs.sql
+│   ├── functions/                   # Edge Functions
+│   │   ├── process-attendance/
+│   │   │   └── index.ts
+│   │   ├── face-verify/
+│   │   │   └── index.ts
+│   │   └── send-notification/
+│   │       └── index.ts
+│   └── storage/                    # Storage Buckets
+│       ├── selfies/
+│       └── avatars/
+├── public/                         # Static Assets
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── logo-dark.png
+│   │   ├── hero-bg.jpg
+│   │   └── features/
+│   ├── icons/
+│   │   ├── icon-192.png
+│   │   ├── icon-512.png
+│   │   └── maskable-icon.png
+│   ├── manifest.json               # PWA Manifest
+│   └── robots.txt
+├── styles/                         # CSS Styles
+│   ├── globals.css
+│   ├── animations.css
+│   └── components/
+│       ├── buttons.css
+│       └── cards.css
+├── middleware.ts                   # Next.js Middleware
+├── next.config.js                  # Next.js Configuration
+├── tailwind.config.js             # Tailwind CSS Config
+├── postcss.config.js              # PostCSS Config
+├── tsconfig.json                  # TypeScript Config
+├── package.json                   # Dependencies
+├── .env.local                     # Environment Variables
+├── .env.example                   # Environment Example
+├── .gitignore                     # Git Ignore
+├── README.md                      # Documentation
+└── LICENSE                        # License
