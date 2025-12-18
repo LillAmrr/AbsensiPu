@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS profiles (
 );
 
 CREATE TABLE IF NOT EXISTS attendance_locations (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   address TEXT,
   latitude DECIMAL(10, 8) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS attendance_locations (
 );
 
 CREATE TABLE IF NOT EXISTS attendance_records (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
   check_in TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()),
   check_out TIMESTAMP WITH TIME ZONE,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS attendance_records (
 );
 
 CREATE TABLE IF NOT EXISTS attendance_schedules (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   department VARCHAR(100),
   work_days INTEGER[] DEFAULT '{1,2,3,4,5}',
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS attendance_schedules (
 );
 
 CREATE TABLE IF NOT EXISTS notifications (
-  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
   title VARCHAR(200) NOT NULL,
   message TEXT,
