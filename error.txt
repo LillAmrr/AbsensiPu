@@ -1,0 +1,4 @@
+ERROR: column "employee_id" does not exist (SQLSTATE 42703)   
+At statement: 10                                              
+CREATE INDEX idx_profiles_employee_id ON profiles(employee_id)
+Try rerunning the command with --debug to troubleshoot the error.

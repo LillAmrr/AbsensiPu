@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS public.profiles CASCADE;
+
 -- Enable extensions
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "postgis";
