@@ -36,10 +36,10 @@ smart-attendance/
 │   │   ├── dashboard/
 │   │   │   ├── page.tsx
 │   │   │   └── loading.tsx
-│   │   ├── employees/
+│   │   ├── interns/
 │   │   │   ├── page.tsx
 │   │   │   └── loading.tsx
-│   │   ├── employees/
+│   │   ├── interns/
 │   │   │   └── [id]/
 │   │   │       ├── page.tsx
 │   │   │       └── loading.tsx

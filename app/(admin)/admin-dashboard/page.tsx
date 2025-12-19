@@ -3,7 +3,7 @@
 import React from 'react';
 import StatsCard from '@/components/admin/StatsCard';
 import AttendanceChart from '@/components/shared/Charts/AttendanceChart';
-import EmployeeTable from '@/components/admin/EmployeeTable';
+import InternTable from '@/components/admin/InternTable';
 import { Users, CalendarCheck, MapPin, Activity } from 'lucide-react';
 
 export default function AdminDashboardPage() {
@@ -12,20 +12,20 @@ export default function AdminDashboardPage() {
       <h1 className="text-4xl font-extrabold text-gray-900 mb-8">Admin Dashboard</h1>
       <p className="text-lg text-gray-600 mb-10">
         Selamat datang di panel administrasi Smart Attendance.
-        Di sini Anda dapat mengelola karyawan, lokasi, dan melihat laporan.
+        Di sini Anda dapat mengelola peserta magang, lokasi, dan melihat laporan.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <StatsCard
-          title="Total Karyawan"
+          title="Total Peserta Magang"
           value="50" // Placeholder data
-          description="Jumlah karyawan terdaftar"
+          description="Jumlah peserta magang terdaftar"
           icon={<Users className="w-8 h-8" />}
         />
         <StatsCard
           title="Absensi Hari Ini"
           value="45/50" // Placeholder data
-          description="Karyawan hadir hari ini"
+          description="Peserta magang hadir hari ini"
           icon={<CalendarCheck className="w-8 h-8" />}
         />
         <StatsCard
@@ -55,7 +55,7 @@ export default function AdminDashboardPage() {
       </div>
 
       <div className="mb-8">
-        <EmployeeTable />
+        <InternTable />
       </div>
     </div>
   );

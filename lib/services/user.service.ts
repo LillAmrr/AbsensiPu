@@ -1,68 +1,68 @@
 import { createClient } from '@/lib/supabase/client';
 
-export interface Employee {
+export interface Intern {
   id: string; // Supabase uses UUIDs for IDs by default, but using string for now.
   name: string;
   email: string;
-  role: 'Admin' | 'Employee';
+  role: 'Admin' | 'Intern';
   status: 'Active' | 'Inactive';
   created_at?: string; // Optional, as Supabase adds this automatically
 }
 
 const supabase = createClient();
-const TABLE_NAME = 'employees'; // Assuming a table named 'employees' in Supabase
+const TABLE_NAME = 'interns'; // Assuming a table named 'employees' in Supabase
 
 export const userService = {
-  async getEmployees(): Promise<Employee[]> {
+  async getInterns(): Promise<Intern[]> {
     const { data, error } = await supabase
       .from(TABLE_NAME)
       .select('*')
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Error fetching employees:', error.message);
+      console.error('Error fetching interns:', error.message);
       throw error;
     }
-    return data as Employee[];
+    return data as Intern[];
   },
 
-  async createEmployee(employee: Omit<Employee, 'id' | 'created_at'>): Promise<Employee> {
+  async createIntern(intern: Omit<Intern, 'id' | 'created_at'>): Promise<Intern> {
     const { data, error } = await supabase
       .from(TABLE_NAME)
-      .insert(employee)
+      .insert(intern)
       .select()
       .single();
 
     if (error) {
-      console.error('Error creating employee:', error.message);
+      console.error('Error creating intern:', error.message);
       throw error;
     }
-    return data as Employee;
+    return data as Intern;
   },
 
-  async updateEmployee(id: string, employee: Partial<Omit<Employee, 'id' | 'created_at'>>): Promise<Employee> {
+  async updateIntern(id: string, intern: Partial<Omit<Intern, 'id' | 'created_at'>>): Promise<Intern> {
     const { data, error } = await supabase
       .from(TABLE_NAME)
-      .update(employee)
+      .update(intern)
       .eq('id', id)
       .select()
       .single();
 
     if (error) {
-      console.error('Error updating employee:', error.message);
+      console.error('Error updating intern:', error.message);
       throw error;
     }
-    return data as Employee;
+    return data as Intern;
   },
 
-  async deleteEmployee(id: string): Promise<void> {
+  async deleteIntern(id: string): Promise<void> {
     const { error } = await supabase
       .from(TABLE_NAME)
       .delete()
       .eq('id', id);
 
     if (error) {
-      console.error('Error deleting employee:', error.message);
+      console.error('Error deleting intern:', error.message);
       throw error;
     }
   },

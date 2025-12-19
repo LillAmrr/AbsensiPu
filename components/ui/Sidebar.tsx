@@ -55,7 +55,7 @@ export default function Sidebar() {
         </div>
         <nav className="flex-grow space-y-2">
           <SidebarLink href="/admin-dashboard" icon={<LayoutDashboard className="w-5 h-5" />} label="Dashboard" />
-          <SidebarLink href="/admin/employees" icon={<Users className="w-5 h-5" />} label="Karyawan" />
+          <SidebarLink href="/admin/interns" icon={<Users className="w-5 h-5" />} label="Peserta Magang" />
           <SidebarLink href="/admin/locations" icon={<MapPin className="w-5 h-5" />} label="Lokasi" />
           <SidebarLink href="/admin/notifications" icon={<Bell className="w-5 h-5" />} label="Notifikasi" />
           <SidebarLink href="/admin/reports" icon={<BarChart2 className="w-5 h-5" />} label="Laporan" />
