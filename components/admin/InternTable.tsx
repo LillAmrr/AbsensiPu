@@ -6,14 +6,14 @@ import { Plus, Edit, Trash2 } from 'lucide-react';
 // import { userService } from '@/lib/services/user.service'; // Temporarily disable userService import
 import { Intern } from '@/lib/services/user.service'; // Keep Intern interface for type checking
 
-const dummyEmployees: Employee[] = [
+const dummyInterns: Intern[] = [
   { id: '1', name: 'John Doe', email: 'john.doe@example.com', role: 'Intern', status: 'Active' },
   { id: '2', name: 'Jane Smith', email: 'jane.smith@example.com', role: 'Intern', status: 'Active' },
   { id: '3', name: 'Peter Jones', email: 'peter.jones@example.com', role: 'Intern', status: 'Inactive' },
 ];
 
-export default function EmployeeTable() {
-  const [interns, setInterns] = useState<Intern[]>(dummyEmployees); // Use dummy data directly
+export default function InternTable() {
+  const [interns, setInterns] = useState<Intern[]>(dummyInterns); // Use dummy data directly
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIntern, setCurrentIntern] = useState<Intern | null>(null);
   const [formData, setFormData] = useState<Omit<Intern, 'id' | 'created_at'>>({ name: '', email: '', role: '', status: 'Active' });
@@ -127,7 +127,7 @@ export default function EmployeeTable() {
         </table>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal} title={currentEmployee ? 'Edit Peserta Magang' : 'Tambah Peserta Magang'}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title={currentIntern ? 'Edit Peserta Magang' : 'Tambah Peserta Magang'}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nama</label>
